@@ -1,0 +1,223 @@
+/* General */
+body {
+  background-color: #000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Footer siempre abajo */
+  margin: 0;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  color: rgb(0, 191, 255);
+  padding: 20px 40px;
+  box-shadow: #38bdf8 0px 4px 6px -1px, #38bdf8 0px 2px 4px -1px;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 25px; /* 📌 separa los botones del logo */
+
+}
+
+/* BOTONES */
+nav a.btn-rgb {
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+nav a.btn-rgb::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, rgb(41, 41, 240), #0ff);
+  background-size: 400% 400%;
+  border-radius: 10px;
+  z-index: -1;
+  animation: rgbBorder 6s linear infinite;
+}
+
+nav a.btn-rgb::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: black;
+  border-radius: 6px;
+  z-index: -1;
+}
+
+nav a.btn-rgb:hover {
+  color: #38bdf8;
+}
+
+@keyframes rgbBorder {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* 📱 MENÚ RESPONSIVO */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #1e293b;
+    position: absolute;
+    top: 70px;   /* 📌 lo baja para que no se monte en el header */
+    right: 20px;
+    width: 220px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 200;
+  }
+}
+
+/* Animación del ícono hamburguesa */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(12px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-12px);
+}
+
+/* EQUIPO */
+.equipo {
+  flex: 1; /* 📌 ocupa todo el espacio antes del footer */
+  text-align: center;
+  padding: 50px 20px;
+  background: #000;
+  color: white;
+}
+
+.equipo h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #38bdf8;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  max-width: 250px;
+}
+
+.img-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Borde circular animado */
+.img-container::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  background: conic-gradient(#00f, #0ff, #00f);
+  animation: spin 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.team-member h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #00c3ff;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #d1d5db;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #111;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: auto;
+ 
+}

@@ -1,0 +1,226 @@
+/* General */
+body {
+  background-color: #000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /*  Footer siempre abajo */
+  margin: 0;
+  padding-top: 80px;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9); /* un poco de transparencia elegante */
+  color: rgb(0, 191, 255);
+  padding: 20px 40px;
+  box-shadow: #38bdf8 0px 4px 6px -1px, #38bdf8 0px 2px 4px -1px;
+  z-index: 100;
+  backdrop-filter: blur(1px); /* efecto de desenfoque moderno */
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 30px; /* 📌 separa los botones del logo */
+}
+
+/* BOTONES */
+nav a.btn-rgb {
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+nav a.btn-rgb::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, rgb(41, 41, 240), #0ff);
+  background-size: 400% 400%;
+  border-radius: 5px;
+  z-index: -1;
+  animation: rgbBorder 6s linear infinite;
+}
+
+nav a.btn-rgb::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: black;
+  border-radius: 6px;
+  z-index: -1;
+}
+
+nav a.btn-rgb:hover {
+  color: #38bdf8;
+}
+
+@keyframes rgbBorder {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+/* 📱 MENÚ RESPONSIVO */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #1e293b;
+    position: absolute;
+    top: 70px;   /*  lo baja para que no se monte en el header */
+    right: 20px;
+    width: 220px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 200;
+  }
+}
+
+.titleca{
+  color: #0ff;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+.subtitle{
+  color: #09ff00;
+  text-align: center;
+
+}
+.parrafo{
+  color: white;
+  text-align: center;
+  
+}
+
+
+
+/* Animación del ícono hamburguesa */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(12px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-12px);
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Espacio entre items */
+    margin-top: 30px;
+}
+
+.gallery-item {
+    background-color: #000000;
+    border: 1px solid #00aaff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Ancho fijo para cada item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el ratón */
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: 180px; /* Altura fija para miniaturas */
+    object-fit: cover; /* Para que las imágenes se ajusten bien */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.gallery-item h4 {
+    color: #3cdce7;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.gallery-item p {
+    font-family: negreta, sans-serif;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ffffff; /* Rojo/Carmesí vibrante para el botón */
+    color: #000000; /* Texto blanco */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    margin: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave */
+    border: 2px solid #ff0000; /* Borde rojo */
+}
+
+.btn:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
+    border-color: #c0392b; /* Borde también se oscurece */
+}
+
+.btn-secondary {
+    background-color: #555; /* Fondo gris oscuro para el botón secundario */
+    border: 2px solid #555; /* Borde gris */
+}
+
+.btn-secondary:hover {
+    background-color: #333; /* Gris más oscuro al pasar el ratón */
+    border-color: #333; /* Borde también se oscurece */
+}

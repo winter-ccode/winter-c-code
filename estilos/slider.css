@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000000;
+  color: white;
+  padding-top: 100px;
+}
+
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2rem;
+}
+
+/* ===== SLIDER ===== */
+.slider-frame {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 5px solid transparent;
+  background: linear-gradient(90deg, #00ddff, #0044ff, #00aaff);
+  background-size: 200% 200%;
+  animation: rgbBorder 3s linear infinite;
+}
+
+/* ===== ANIMACIÓN BORDE ===== */
+@keyframes rgbBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.slider-frame ul {
+  display: flex;
+  width: 400%;
+  animation: slide 15s infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+  list-style: none;
+  width: 100%;
+}
+
+.slider-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* ===== ANIMACIÓN SLIDE ===== */
+@keyframes slide {
+
+  0%,
+  20% {
+    margin-left: 0%;
+  }
+
+  25%,
+  45% {
+    margin-left: -100%;
+  }
+
+  50%,
+  70% {
+    margin-left: -200%;
+  }
+
+  75%,
+  100% {
+    margin-left: -300%;
+  }
+}
+
+/* ===== TEXTO ===== */
+p {
+  text-align: center;
+  margin: 20px auto;
+  width: 100%;
+  line-height: 1.5;
+  font-size: 1.3rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .slider-frame {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .slider-frame {
+    width: 100%;
+  }
+}
+
+
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* un poco de transparencia elegante */
+  color: rgb(0, 191, 255);
+  padding: 20px 40px;
+  box-shadow: #38bdf8 0px 4px 6px -1px, #38bdf8 0px 2px 4px -1px;
+  z-index: 100;
+  backdrop-filter: blur(1px);
+  /* efecto de desenfoque moderno */
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+/*Botones con borde animado */
+nav a.btn-rgb {
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+nav a.btn-rgb::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, rgb(41, 41, 240), #0ff);
+  /* 🔹 aquí puedes dejar 1 o 2 colores */
+  background-size: 400% 400%;
+  border-radius: 10px;
+  z-index: -1;
+  animation: rgbBorder 6s linear infinite;
+}
+
+nav a.btn-rgb::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: black;
+  /* Fondo interno */
+  border-radius: 6px;
+  z-index: -1;
+}
+
+nav a.btn-rgb:hover {
+  color: #38bdf8;
+}
+
+/* Animación del borde */
+@keyframes rgbBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    position: center;
+    z-index: 200;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #1e293b;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    border-radius: 0 0 0 10px;
+  }
+
+  nav.show {
+    display: flex;
+    position: center;
+  }
+}
+
+/* 🔹 Animación hamburguesa */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(12px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-12px);
+}
+
+/*footer*/
+.footer {
+  background: #181616;
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: .9rem;
+}
+
+.footer a {
+  color: #00e6ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
