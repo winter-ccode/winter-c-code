@@ -1,0 +1,471 @@
+body {
+  background-color: black;
+  color: white;
+  padding-top: 80px;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* un poco de transparencia elegante */
+  color: rgb(0, 191, 255);
+  padding: 20px 40px;
+  box-shadow: #38bdf8 0px 4px 6px -1px, #38bdf8 0px 2px 4px -1px;
+  z-index: 100;
+  backdrop-filter: blur(1px);
+  /* efecto de desenfoque moderno */
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+/*Botones con borde animado */
+nav a.btn-rgb {
+  position: relative;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+nav a.btn-rgb::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(270deg, rgb(41, 41, 240), #0ff);
+  /* 🔹 aquí puedes dejar 1 o 2 colores */
+  background-size: 400% 400%;
+  border-radius: 10px;
+  z-index: -1;
+  animation: rgbBorder 6s linear infinite;
+}
+
+nav a.btn-rgb::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: black;
+  /* Fondo interno */
+  border-radius: 6px;
+  z-index: -1;
+}
+
+nav a.btn-rgb:hover {
+  color: #38bdf8;
+}
+
+/* Animación del borde */
+@keyframes rgbBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    position: center;
+    z-index: 200;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #1e293b;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    border-radius: 0 0 0 10px;
+  }
+
+  nav.show {
+    display: flex;
+    position: center;
+  }
+}
+
+/* 🔹 Animación hamburguesa */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(12px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-12px);
+}
+
+/*footer*/
+.footer {
+  background: #181616;
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: .9rem;
+}
+
+.footer a {
+  color: #00e6ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+  padding: 90px 20px;
+  text-align: center;
+  background: linear-gradient(90deg, #000 0%, #001827 100%);
+  color: #fff;
+}
+
+.hero-inner h1 {
+  font-size: 2.4rem;
+  color: #00e6ff;
+  margin: 0 0 12px;
+}
+
+.hero-inner p {
+  margin-bottom: 18px;
+  opacity: .9;
+}
+
+.btn-principal {
+  background: #00e6ff;
+  color: #000;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-block;
+}
+
+@media (max-width:600px) {
+  .hero {
+    padding: 60px 12px;
+  }
+
+  .hero-inner h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* SERVICIOS */
+.servicios {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.servicios h2 {
+  color: #00e6ff;
+  margin-bottom: 24px;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.servicio {
+  background: #0f0f10;
+  border: 1px solid #ff0000;
+  border-radius: 10px;
+  padding: 18px;
+  transition: transform .18s, box-shadow .18s;
+}
+
+.servicio:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0, 230, 255, .08);
+}
+
+.servicio h3 {
+  color: #00e6ff;
+  margin-bottom: 12px;
+}
+
+.servicio p {
+  color: #ffffff;
+  font-size: .95rem;
+  line-height: 1.4;
+}
+
+/* PORTAFOLIO */
+.portafolio {
+  padding: 70px 20px;
+  text-align: center;
+}
+.titlepo{
+  color:#00ff0d;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.proyecto img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.proyecto figcaption {
+  margin-top: 8px;
+  color: #dddddd;
+  font-size: .95rem;
+}
+
+.proyecto:hover img {
+  transform: scale(1.03);
+  transition: transform .25s;
+}
+
+/* VENTAJAS */
+.ventajas {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.lista-ventajas {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  max-width: 900px;
+}
+
+.lista-ventajas li {
+  background: #0d0d0e;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #00ff0d;
+}
+
+/* CTA FINAL */
+.cta-final {
+  padding: 80px 20px;
+  text-align: center;
+  background: #071019;
+  border-top: 1px solid rgba(0, 230, 255, .1);
+}
+
+.cta-final h2 {
+  color: #00e6ff;
+  margin-bottom: 10px;
+}
+
+.cta-final p {
+  margin-bottom: 25px;
+  color: #ddd;
+}
+
+.botones-contacto {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-whatsapp,
+.btn-email {
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-whatsapp {
+  background-color: #25d366;
+  color: #000;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
+
+.btn-email {
+  background-color: cyan;
+  color: #000;
+}
+
+.btn-email:hover {
+  background-color: white;
+}
+
+/* SECCIÓN DE PRECIOS */
+.precios {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.planes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.plan {
+  background: #0f0f10;
+  border: 1px solid #00bcd4;
+  border-radius: 10px;
+  padding: 25px;
+}
+
+.plan.destacado {
+  box-shadow: 0 0 15px rgba(0, 230, 255, .3);
+}
+
+.precio {
+  color: #00e6ff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: #fff;
+  font-size: 28px;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .4);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+}
+
+/* Animaciones al hacer scroll */
+.servicio,
+.plan,
+.proyecto {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all .6s ease;
+}
+
+.servicio.aparecer,
+.plan.aparecer,
+.proyecto.aparecer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 💡 Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 15px;
+  }
+
+  .hero-inner h1 {
+    font-size: 1.7rem;
+  }
+
+  .servicios,
+  .portafolio,
+  .precios,
+  .ventajas,
+  .cta-final {
+    padding: 50px 15px;
+  }
+
+  .servicios-grid,
+  .proyectos-grid,
+  .planes {
+    grid-template-columns: 1fr;
+  }
+
+  .botones-contacto {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-principal,
+  .btn-whatsapp,
+  .btn-email {
+    width: 80%;
+    text-align: center;
+  }
+
+  .whatsapp-float {
+    bottom: 15px;
+    right: 15px;
+    font-size: 22px;
+    padding: 10px 12px;
+  }
+}

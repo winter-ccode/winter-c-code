@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINTER C CODE</title>
+    <link rel="stylesheet" href="estilos/styles.css">
+</head>
+<body>
+  <header>
+  <div class="logo">WINTER C CODE</div>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="menu">
+    <a href="catalogo.html" class="btn-rgb">Catalogo</a>
+    <a href="Servicios.html" class="btn-rgb">Servicios</a>
+    <a href="nosotros.html" class="btn-rgb">Nuestro equipo</a>
+    <a href="contacto.html" class="btn-rgb">Contacto</a>
+  </nav>
+</header>
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <h1> Somos WINTER C CODE</h1>
+    <h1>Desarrollamos páginas web y software a medida</h1>
+    <p>Diseños responsivos, performance y soporte técnico. Tu proyecto listo para vender.</p>
+    <a class="btn-principal" href="#contacto">Solicita tu presupuesto</a>
+  </div>
+</section>
+<!-- SERVICIOS -->
+<section id="servicios" class="servicios">
+  <h2>Nuestros servicios</h2>
+  <div class="servicios-grid">
+    <article class="servicio">
+      <h3>Desarrollo Web</h3>
+      <p>Sitios responsivos, SEO básico y optimización de velocidad.</p>
+    </article>
+    <article class="servicio">
+      <h3>Software a medida</h3>
+      <p>Aplicaciones internas, paneles de administración y APIs.</p>
+    </article>
+    <article class="servicio">
+      <h3>Tienda Online</h3>
+      <p>Integración de pasarelas, catálogo y gestión de pedidos.</p>
+    </article>
+    <article class="servicio">
+      <h3>Mantenimiento</h3>
+      <p>Soporte, actualizaciones y monitoreo 24/7.</p>
+    </article>
+  </div>
+</section>
+<!-- PORTAFOLIO -->
+<section id="portafolio" class="portafolio">
+  <h2 class="titlepo">PROYECTOS RECIENTES</h2>
+  <div class="proyectos-grid">
+    <figure class="proyecto">
+      <img src="img/ChatGPT Image 28 sept 2025, 00_12_50.png" alt="Sitio web para empresa X">
+      <figcaption>Web Corporativa — Empresa X</figcaption>
+    </figure>
+    <figure class="proyecto">
+      <img src="img/backiee-304101.jpg" alt="App de gestión">
+      <figcaption>Software de Inventario</figcaption>
+    </figure>
+    <figure class="proyecto">
+      <img src="img/fondo.jpg" alt="Tienda en línea">
+      <figcaption>Ecommerce — Marca Y</figcaption>
+    </figure>
+  </div>
+</section>
+<!--Los mas vendidos :)-->
+<section id="portafolio" class="portafolio">
+  <h2 class="titlepo">LO MAS VENDIDO EN ESTE AÑO </h2>
+  <div class="proyectos-grid">
+    <figure class="proyecto">
+      <img src="img/ChatGPT Image 28 sept 2025, 00_12_50.png" alt="Sitio web para empresa X">
+      <figcaption>Web Corporativa — Empresa X</figcaption>
+    </figure>
+    <figure class="proyecto">
+      <img src="img/backiee-304101.jpg" alt="App de gestión">
+      <figcaption>Software de Inventario</figcaption>
+    </figure>
+    <figure class="proyecto">
+      <img src="img/fondo.jpg" alt="Tienda en línea">
+      <figcaption>Ecommerce — Marca Y</figcaption>
+    </figure>
+  </div>
+</section>
+<!-- VENTAJAS -->
+<section class="ventajas">
+  <h2>¿Por qué elegirnos?</h2>
+  <ul class="lista-ventajas">
+    <li>✅ Entregas a tiempo</li>
+    <li>✅ Diseño orientado a conversiones</li>
+    <li>✅ Soporte y mantenimiento</li>
+    <li>✅ Proyectos + pruebas reales</li>
+  </ul>
+</section>
+<!-- CTA FINAL -->
+
+<!-- SECCIÓN DE PRECIOS -->
+<section id="precios" class="precios">
+  <h2>Planes y precios</h2>
+  <div class="planes">
+    <div class="plan">
+      <h3>Plan Básico</h3>
+      <p>Web informativa de 1-3 páginas</p>
+      <p class="precio">Desde S/ 300</p>
+    </div>
+    <div class="plan destacado">
+      <h3>Plan Profesional</h3>
+      <p>Sitio corporativo + SEO + dominio</p>
+      <p class="precio">Desde S/ 700</p>
+    </div>
+    <div class="plan">
+      <h3>Plan Premium</h3>
+      <p>E-commerce o software a medida</p>
+      <p class="precio">Desde S/ 1200</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="cta-final">
+  <h2>¿Listo para tu nuevo proyecto?</h2>
+  <p>Hablemos sobre tu idea y te damos un presupuesto sin compromiso.</p>
+
+  <div class="botones-contacto">
+    <a href="https://wa.me/51961740274" target="_blank" class="btn-whatsapp">
+      💬 WhatsApp
+    </a>
+    <a href="mailto:winterccode@gmail.com" class="btn-email">
+      ✉️ Gmail
+    </a>
+  </div>
+</section>
+
+<a href="https://wa.me/51904740926?text=Hola%20quiero%20una%20página%20web%20me%20pueden%20ayudar%20me intereso una web y quiero saber mas sobre ella y su precio o cotizar una " 
+   class="whatsapp-float" target="_blank">💬</a>
+<script>
+  const aparecer = () => {
+    const elementos = document.querySelectorAll('.servicio, .plan, .proyecto');
+    const trigger = window.innerHeight * 0.85;
+
+    elementos.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < trigger) el.classList.add('aparecer');
+    });
+  };
+
+  window.addEventListener('scroll', aparecer);
+  window.addEventListener('load', aparecer);
+</script>
+  
+   <footer class="footer">
+  <p>© 2025 WINTER C CODE | Todos los derechos reservados</p>
+  <p>
+    <a href="#servicios">Servicios</a> · 
+    <a href="#portafolio">Portafolio</a> · 
+    <a href="mailto:winterccode@gmail.com">Email</a>
+  </p>
+</footer>
+
+  <script src="animaciones/script.js"></script>    
+</body>
+</html>
