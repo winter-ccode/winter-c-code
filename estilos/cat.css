@@ -226,3 +226,21 @@ nav a.btn-rgb:hover {
     border-color: #ff0000; /* Borde también se oscurece */
     color: rgb(0, 0, 0);
 }
+
+
+.footer {
+  background: #181616;
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: .9rem;
+}
+
+.footer a {
+  color: #00e6ff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
