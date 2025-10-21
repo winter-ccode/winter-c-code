@@ -211,16 +211,18 @@ nav a.btn-rgb:hover {
 }
 
 .btn:hover {
-    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
-    border-color: #c0392b; /* Borde también se oscurece */
+    background-color: #ff1900; /* Rojo más oscuro al pasar el ratón */
+    border-color: #ffee00; /* Borde también se oscurece */
+    color: white;
 }
 
 .btn-secondary {
-    background-color: #555; /* Fondo gris oscuro para el botón secundario */
-    border: 2px solid #555; /* Borde gris */
+    background-color: #00e5ff; /* Fondo gris oscuro para el botón secundario */
+    border: 2px solid #2bff00; /* Borde gris */
 }
 
 .btn-secondary:hover {
-    background-color: #333; /* Gris más oscuro al pasar el ratón */
-    border-color: #333; /* Borde también se oscurece */
+    background-color: #ffffff; /* Gris más oscuro al pasar el ratón */
+    border-color: #ff0000; /* Borde también se oscurece */
+    color: rgb(0, 0, 0);
 }
