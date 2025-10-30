@@ -72,7 +72,6 @@ nav a.btn-rgb::before {
   right: -2px;
   bottom: -2px;
   background: linear-gradient(270deg, rgb(41, 41, 240), #0ff);
-  /* 🔹 aquí puedes dejar 1 o 2 colores */
   background-size: 400% 400%;
   border-radius: 10px;
   z-index: -1;
@@ -496,4 +495,31 @@ nav a.btn-rgb:hover {
     font-size: 22px;
     padding: 10px 12px;
   }
+}
+/* BOTÓN FLOTANTE DE WHATSAPP */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+}
+
+/* Imagen del logo */
+.whatsapp-logo {
+  width: 42px;   /* puedes cambiar por 35px o 50px según el tamaño que desees */
+  height: 42px;
+  object-fit: contain;
 }
